@@ -1,0 +1,19 @@
+.main-footer {
+  background: map-get($nes, gold);
+  overflow: auto;
+
+  @include bp (640px) {
+    background: #00CC00;
+  }
+
+  @include bp (1000px) {
+    background: map-get($snes, purple);
+  }
+}
+
+.main-footer__copy {
+  color: map-get($nes, white);
+  padding: 4em 1em;
+  margin: 0 auto;
+  max-width: 1040px;
+}
