@@ -1,0 +1,17 @@
+{
+  "name": "ted.codes",
+  "version": "1.0.0",
+  "description": "professional site",
+  "main": "index.html",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp-sass": "^3.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ted Waller",
+  "license": "ISC"
+}

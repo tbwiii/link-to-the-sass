@@ -1,0 +1,12 @@
+.main-content {
+  background: map-get($nes, grey--light);
+  min-height: 200px;
+  padding: 3em 1em;
+  position: relative;
+}
+
+.main-content__inner {
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 100%;
+}

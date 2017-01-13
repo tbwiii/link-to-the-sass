@@ -1,0 +1,378 @@
+@keyframes animatedBackground {
+	0% { background-position: 0 0}
+	25% { background-position: 100% 100%}
+  50% { background-position: 0% 100%}
+  75% { background-position: 100% 0%}
+  100% { background-position: 0% 0}
+}
+
+.main-header {
+	animation: animatedBackground 200s linear infinite;
+  background: url('images/links_awakening.png') 0 0 fixed;
+  padding-top: .01em;
+	overflow: hidden;
+	position: relative;
+
+  @include bp (640px) {
+    background: url('images/zeldamap.png') 0 0 fixed;
+  }
+
+  @include bp (1000px) {
+		animation: animatedBackground 400s linear infinite;
+    background: url('images/light_world.png') 0 0 fixed;
+		overflow: hidden;
+  }
+
+	&::before {
+		@include bp (640px) {
+			border: solid 25px transparent;
+			border-bottom: 0;
+			border-top: solid 40px rgba(#888, 0.2);
+			height: 0;
+			width: 0;
+			z-index: 2;
+			left: calc(50%);
+			position: absolute;
+			bottom: -.5em;
+		}
+
+		@include bp (1000px) {
+			display: none;
+		}
+	}
+
+	&::after {
+		@include bp (640px) {
+			background: rgba(252,243,214,1);
+			bottom: 0;
+			box-shadow: 0 14px 15px rgba(map-get($nes, black), .8);
+			height: 2.3em;
+			left: 50%;
+			max-width: 550px;
+			position: absolute;
+			transform: translateX(-50%);
+			width: 550px;
+		}
+
+		@include bp (1000px) {
+			display: none;
+		}
+	}
+}
+
+.main-header__cartridge {
+  @include cartridge-body-gradient;
+  border-radius: 0 6px 0 0;
+  box-shadow: -15px 5px 15px 10px rgba(map-get($nes, black), .8);
+  height: 14em;
+  margin: 4em auto 0;
+	min-width: 320px;
+  overflow: visible;
+  position: relative;
+  width: 80%;
+
+  @include bp (640px) {
+    @include cartridge-body-gradient--gold;
+    border-radius: 4px;
+		box-shadow: 0 0 20px #232323, inset 2px 2px 13px 0px rgba(51, 51, 51, 0.4), inset -12px 20px 23px 3px rgba(255, 255, 255, 0.5);
+    height: 30em;
+		margin-bottom: 2em;
+		max-width: 624px;
+		min-width: 624px;
+		width: 72%;
+  }
+
+  @include bp (1000px) {
+    background-color: #8a8a8a;
+    background: linear-gradient(to bottom, #bcbcbc 0%, #bcbcbc 90%, #434343 92%, #666666 93%, #ddd 100%);
+    background-size: 192px;
+    border-width: 0 2px 0 2px;
+    border-radius: 5px 5px 0 0;
+    box-shadow: -30px 5px 20px 15px rgba(map-get($nes, black), .6), inset 3px 0 3px rgba(#333, 0.8), inset -3px 0 3px rgba(#fff, 0.8);
+    height: 300px;
+    text-align: center;
+		margin-bottom: 0;
+		max-width: 900px;
+    min-width: 900px;
+  }
+
+  &::before {
+    @include cartridge-body-gradient;
+    border-radius: 6px 6px 0 0;
+    position: absolute;
+    top: -2em;
+    height: 2em;
+    width: 90%;
+
+    @include bp (640px) {
+      background-image: -webkit-gradient(
+      	linear,
+      	left top,
+      	left bottom,
+      	color-stop(0, #383838),
+      	color-stop(.01, #bead82),
+      	color-stop(.5, #ececce),
+      	color-stop(.51, #d4caac)
+      );
+      background-size: 5%;
+      border-radius: 0;
+      box-shadow: inset 1px 0 2px 1px rgba(0, 0, 0, .3);
+      height: 110%;
+      left: 14.5%;
+      top: 0;
+      width: 21%;
+			z-index: 2;
+    }
+
+    @include bp (1000px) {
+      @include cartridge-body-gradient;
+      border-radius: 5px 5px 0 0;
+      display: block;
+      height: 315px;
+      left: 80px;
+      margin: 0 auto;
+      position: absolute;
+      top: -15px;
+      width: calc(100% - 160px);
+			z-index: initial;
+    }
+  }
+
+  &::after {
+    @include bp (640px) {
+			border: solid 0 #a2915e;
+			border-width: 0 0 2px 2px;
+			border-radius: 0 0 8px 8px;
+			box-shadow: inset 8px -6px 11px rgba(51, 51, 51, 0.3);
+			height: 3.9em;
+			left: 14.5%;
+			position: absolute;
+			top: 0;
+      width: calc(21% - 2px);
+			z-index: 2;
+    }
+
+    @include bp (1000px) {
+      background: transparent;
+      border: solid 1px map-get($nes, grey--dark);
+      border-radius: 20px 20px 0 0;
+      bottom: -40px;
+      box-shadow: inset -5px 5px 8px #777;
+      height: 80px;
+      left: 108px;
+			top: initial;
+      position: absolute;
+      width: calc(100% - 216px);
+    }
+  }
+}
+
+.main-header__label {
+  background: map-get($nes, gold);
+  border-radius: 15px;
+  height: 12em;
+  left: 10%;
+  overflow: hidden;
+  position: absolute;
+  top: 6em;
+  width: 80%;
+
+	@include bp (640px) {
+    border: solid 2px #d4caac;
+    border-left-color: rgba(#333, .3);
+    border-radius: 0 0 12px 12px;
+    border-top: 0;
+    height: 94%;
+    left: 38%;
+    top: 0;
+    width: 47%;
+  }
+
+  @include bp (1000px) {
+    background: map-get($nes, black);
+    border-color: #ccc;
+    border-radius: 0 0 20px 20px;
+    color: map-get($nes, white--off);
+    font-size: 2.8em;
+    height: 230px;
+    left: 108px;
+    top: -15px;
+    width: calc(100% - 216px);
+  }
+
+  &::before {
+    background: #fff;
+    height: 100%;
+    position: absolute;
+    width: 25px;
+
+    @include bp (640px) {
+      display: none;
+    }
+
+    @include bp (1000px) {
+      background: map-get($colors, red);
+      display: block;
+      height: 8px;
+      position: absolute;
+      right: 10px;
+      width: 23%;
+    }
+  }
+
+  &::after {
+    background: #fff;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 25px;
+
+    @include bp (640px) {
+      display: none;
+    }
+
+    @include bp (1000px) {
+      background: none;
+      border: solid 10px transparent;
+      border-top-color: map-get($colors, purple);
+      display: block;
+      left: 20px;
+      height: 0;
+      position: absolute;
+      top: 50px;
+      width: 0;
+    }
+  }
+}
+
+.main-header__inner-label {
+  background: map-get($nes, gold) url('images/mac.png') no-repeat 70% 60%;
+  background-size: 70%;
+
+  @include bp (640px) {
+    height: 100%;
+    background-size: 105%;
+    background-position: -50% 10%;
+  }
+
+  @include bp (1000px) {
+    background-position: 10% center;
+    background-size: 70%;
+    padding: .2em 0 .8em 0;
+    border-radius: 2px;
+    margin: .1em 4.5em 0 1.7em;
+  }
+}
+
+.main-header__name {
+  width: 80%;
+  margin: 1em 10%;
+
+  @include bp (640px) {
+    position: absolute;
+		left: 5%;
+		margin: 0;
+		top: 56.5%;
+		width: 90%;
+  }
+
+  @include bp (1000px) {
+		position: relative;
+		left: initial;
+    margin: 0 0 0 -.25em;
+    max-width: 111%;
+    width: 111%;
+  }
+}
+
+.main-header__sheild {
+  display: none;
+
+  @include bp (1000px) {
+    display: block;
+    position: absolute;
+    top: 22px;
+    right: 14px;
+    width: 110px;
+    height: 140px;
+  }
+}
+
+.main-header__job--gb {
+  background-color: transparent;
+  background-image: linear-gradient(#8a8a8a 12%, transparent 52%);
+  background-size: 20%;
+  height: 4em;
+  position: absolute;
+  top: 1em;
+  width: 100%;
+
+  @include bp (640px) {
+    display: none;
+  }
+
+  &::after {
+    background: map-get($nes, grey);
+    border: solid 4px map-get($nes, grey);
+    border-radius: 25% 25% 25% 25% / 115%;
+    box-shadow: inset 10px 10px 30px rgba(#222, .7);
+    height: 4.3em;
+    left: 10%;
+    position: absolute;
+    top: -6px;
+    width: 80%;
+  }
+}
+
+.main-header__job--gb__shadow,
+.main-header__job--gb__words {
+  position: absolute;
+  height: auto;
+  width: 70%;
+  z-index: 2;
+}
+
+.main-header__job--gb__shadow {
+	left: 17.5%;
+  filter: blur(1px);
+  opacity: .6;
+	top: 50.5%;
+	transform: translateY(-50.5%);
+}
+
+.main-header__job--gb__words {
+	left: 17%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.main-header__job--nes {
+	display: none;
+
+	@include bp (640px) {
+		display: block;
+		margin-left: 5%;
+		position: absolute;
+		width: 90%;
+		top: 50%;
+	}
+
+	@include bp (1000px) {
+		display: none;
+	}
+}
+
+.main-header__job--snes {
+  display: none;
+
+  @include bp (1000px) {
+    bottom: 10px;
+    display: block;
+    font-size: 0;
+    height: auto;
+    position: absolute;
+    right: 15px;
+    width: 20%;
+  }
+}
