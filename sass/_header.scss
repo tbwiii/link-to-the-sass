@@ -7,21 +7,9 @@
 }
 
 .main-header {
-	animation: animatedBackground 200s linear infinite;
-  background: url('images/links_awakening.png') 0 0 fixed;
-  padding-top: .01em;
-	overflow: hidden;
-	position: relative;
-
-  @include bp (640px) {
-    background: url('images/zeldamap.png') 0 0 fixed;
-  }
-
-  @include bp (1000px) {
-		animation: animatedBackground 400s linear infinite;
-    background: url('images/light_world.png') 0 0 fixed;
-		overflow: hidden;
-  }
+  bottom: 100px;
+  position: absolute;
+  width: 100%;
 
 	&::before {
 		@include bp (640px) {
@@ -32,8 +20,8 @@
 			width: 0;
 			z-index: 2;
 			left: calc(50%);
-			position: absolute;
-			bottom: -.5em;
+      bottom: -.5em;
+      position: absolute;
 		}
 
 		@include bp (1000px) {
@@ -44,7 +32,7 @@
 	&::after {
 		@include bp (640px) {
 			background: rgba(252,243,214,1);
-			bottom: 0;
+			bottom: 4em;
 			box-shadow: 0 14px 15px rgba(map-get($nes, black), .8);
 			height: 2.3em;
 			left: 50%;
@@ -74,9 +62,9 @@
   @include bp (640px) {
     @include cartridge-body-gradient--gold;
     border-radius: 4px;
+    bottom: 6em;
 		box-shadow: 0 0 20px #232323, inset 2px 2px 13px 0px rgba(51, 51, 51, 0.4), inset -12px 20px 23px 3px rgba(255, 255, 255, 0.5);
     height: 30em;
-		margin-bottom: 2em;
 		max-width: 624px;
 		min-width: 624px;
 		width: 72%;
@@ -88,10 +76,10 @@
     background-size: 192px;
     border-width: 0 2px 0 2px;
     border-radius: 5px 5px 0 0;
+    bottom: 5em;
     box-shadow: -30px 5px 20px 15px rgba(map-get($nes, black), .6), inset 3px 0 3px rgba(#333, 0.8), inset -3px 0 3px rgba(#fff, 0.8);
     height: 300px;
     text-align: center;
-		margin-bottom: 0;
 		max-width: 900px;
     min-width: 900px;
   }
@@ -114,7 +102,7 @@
       	color-stop(.5, #ececce),
       	color-stop(.51, #d4caac)
       );
-      background-size: 5%;
+      background-size: 100% 5%;
       border-radius: 0;
       box-shadow: inset 1px 0 2px 1px rgba(0, 0, 0, .3);
       height: 110%;

@@ -6,14 +6,28 @@
     height: 0; }
 
 html {
+  height: 100%;
   margin: 0;
   padding: 0; }
 
 body {
+  animation: animatedBackground 200s linear infinite;
+  background: url("images/links_awakening.png") 0 0 fixed;
   color: #333;
   font-family: "Source Code Pro";
+  height: 100%;
   margin: 0;
-  padding: 0; }
+  padding-top: .01em;
+  overflow: hidden;
+  position: relative; }
+  @media only screen and (min-width: 640px) {
+    body {
+      background: url("images/zeldamap.png") 0 0 fixed; } }
+  @media only screen and (min-width: 1000px) {
+    body {
+      animation: animatedBackground 400s linear infinite;
+      background: url("images/light_world.png") 0 0 fixed;
+      overflow: hidden; } }
 
 h1,
 h2,
@@ -29,7 +43,8 @@ img {
   width: 100%; }
 
 .site-wrapper {
-  max-width: 100%; }
+  max-width: 100%;
+  height: 100%; }
 
 @keyframes animatedBackground {
   0% {
@@ -44,19 +59,9 @@ img {
     background-position: 0% 0; } }
 
 .main-header {
-  animation: animatedBackground 200s linear infinite;
-  background: url("images/links_awakening.png") 0 0 fixed;
-  padding-top: .01em;
-  overflow: hidden;
-  position: relative; }
-  @media only screen and (min-width: 640px) {
-    .main-header {
-      background: url("images/zeldamap.png") 0 0 fixed; } }
-  @media only screen and (min-width: 1000px) {
-    .main-header {
-      animation: animatedBackground 400s linear infinite;
-      background: url("images/light_world.png") 0 0 fixed;
-      overflow: hidden; } }
+  bottom: 100px;
+  position: absolute;
+  width: 100%; }
   @media only screen and (min-width: 640px) {
     .main-header::before {
       border: solid 25px transparent;
@@ -66,15 +71,15 @@ img {
       width: 0;
       z-index: 2;
       left: calc(50%);
-      position: absolute;
-      bottom: -.5em; } }
+      bottom: -.5em;
+      position: absolute; } }
   @media only screen and (min-width: 1000px) {
     .main-header::before {
       display: none; } }
   @media only screen and (min-width: 640px) {
     .main-header::after {
       background: #fcf3d6;
-      bottom: 0;
+      bottom: 4em;
       box-shadow: 0 14px 15px rgba(35, 35, 35, 0.8);
       height: 2.3em;
       left: 50%;
@@ -100,9 +105,9 @@ img {
     .main-header__cartridge {
       background: linear-gradient(to bottom, #fcf3d6 0%, #bead82 53%, #bead82 53%, #fcf3d6 100%);
       border-radius: 4px;
+      bottom: 6em;
       box-shadow: 0 0 20px #232323, inset 2px 2px 13px 0px rgba(51, 51, 51, 0.4), inset -12px 20px 23px 3px rgba(255, 255, 255, 0.5);
       height: 30em;
-      margin-bottom: 2em;
       max-width: 624px;
       min-width: 624px;
       width: 72%; } }
@@ -113,10 +118,10 @@ img {
       background-size: 192px;
       border-width: 0 2px 0 2px;
       border-radius: 5px 5px 0 0;
+      bottom: 5em;
       box-shadow: -30px 5px 20px 15px rgba(35, 35, 35, 0.6), inset 3px 0 3px rgba(51, 51, 51, 0.8), inset -3px 0 3px rgba(255, 255, 255, 0.8);
       height: 300px;
       text-align: center;
-      margin-bottom: 0;
       max-width: 900px;
       min-width: 900px; } }
   .main-header__cartridge::before {
@@ -129,7 +134,7 @@ img {
     @media only screen and (min-width: 640px) {
       .main-header__cartridge::before {
         background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #383838), color-stop(0.01, #bead82), color-stop(0.5, #ececce), color-stop(0.51, #d4caac));
-        background-size: 5%;
+        background-size: 100% 5%;
         border-radius: 0;
         box-shadow: inset 1px 0 2px 1px rgba(0, 0, 0, 0.3);
         height: 110%;
@@ -372,20 +377,25 @@ img {
 
 .featured-links {
   background: #f8f8f8;
+  bottom: 0;
   box-shadow: -10 -10 20px rgba(51, 51, 51, 0.8);
   margin: 0;
   overflow: hidden;
   padding: 2em 0 0;
-  position: relative; }
+  position: absolute;
+  width: 100%;
+  z-index: 3; }
   @media only screen and (min-width: 640px) {
     .featured-links {
       background: #bcbcbc;
+      bottom: 1.2em;
       box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.2);
       overflow: visible;
       padding: 3em 0; } }
   @media only screen and (min-width: 1000px) {
     .featured-links {
-      border-radius: 0 0 4px 4px; } }
+      border-radius: 0 0 4px 4px;
+      bottom: 0; } }
   @media only screen and (min-width: 640px) {
     .featured-links::before {
       background: transparent;
